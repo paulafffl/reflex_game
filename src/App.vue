@@ -22,11 +22,9 @@ export default class App extends Vue {
   hasPlayed = false;
   delay = 0;
   start() {
-    this.delay = 2000 + Math.random() * 5000;
+    this.delay = 1000 + Math.random() * 5000;
     this.hasPlayed = true;
-    setTimeout(() => {
-      this.isPlaying = true;
-    }, this.delay);
+    this.isPlaying = true;
   }
 }
 </script>
