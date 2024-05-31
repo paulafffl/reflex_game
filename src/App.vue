@@ -1,30 +1,11 @@
 <template>
-  <h1>{{ title }}</h1>
-  <p>Welcome...</p>
-  <div v-if="showModal">
-    <AppModal :heading="heading" :text="text" @close="toggleModal" />
-  </div>
-  <button @click="toggleModal">open modal</button>
+  <h1>Reflex&nbsp;Game</h1>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import AppModal from "./components/AppModal.vue";
 
-@Options({
-  components: {
-    AppModal,
-  },
-})
-export default class App extends Vue {
-  title = "My First Vue App!";
-  heading = "Heading";
-  text = "More info";
-  showModal = false;
-  toggleModal() {
-    this.showModal = !this.showModal;
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style>
