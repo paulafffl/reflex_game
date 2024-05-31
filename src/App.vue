@@ -1,18 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <h1>{{ title }}</h1>
+  <p>Welcome...</p>
+  <div v-if="showModal">
+    <AppModal :heading="heading" :text="text" @close="toggleModal" />
+  </div>
+  <button @click="toggleModal">open modal</button>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
+import AppModal from "./components/AppModal.vue";
 
 @Options({
   components: {
-    HelloWorld,
+    AppModal,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  title = "My First Vue App!";
+  heading = "Heading";
+  text = "More info";
+  showModal = false;
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
+}
 </script>
 
 <style>
