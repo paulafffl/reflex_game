@@ -2,13 +2,15 @@
   <h1 v-show="showBlock" @click="stopTimer">🥎</h1>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   props: ["delay"],
   data() {
     return {
       showBlock: false,
-      timer: null,
+      timer: 0,
       reactionTime: 0,
     };
   },
@@ -19,17 +21,17 @@ export default {
     }, this.delay);
   },
   methods: {
-    startTimer() {
-      this.time = setInterval(() => {
+    startTimer(this: { timer: number; reactionTime: number }) {
+      this.timer = setInterval(() => {
         this.reactionTime += 10;
       }, 10);
     },
-    stopTimer() {
+    stopTimer(this: { timer: number; reactionTime: number }) {
       clearInterval(this.timer);
       alert(this.reactionTime);
     },
   },
-};
+});
 </script>
 
 <style scoped>
