@@ -1,8 +1,9 @@
 <template>
   <div class="backdrop" @click="closeModal">
     <div class="modal" :class="{ alert: theme === 'alert' }">
-      <h1>{{ heading }}</h1>
-      <p>{{ text }}</p>
+      <h2>{{ heading }}</h2>
+      <h1>{{ text }}</h1>
+      <p>(click anywhere to play again)</p>
     </div>
   </div>
 </template>
@@ -18,35 +19,30 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .modal {
   width: 400px;
-  padding: 20px;
-  margin: 200px auto;
-  background: white;
+  height: auto;
+  padding: 40px;
+  padding-bottom: 50px;
+  background: #4d8dd7;
   border-radius: 10px;
 }
 .backdrop {
-  top: 0;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.modal h1 {
-  color: #03cfb4;
-  border: none;
-  padding: 0;
-}
-.modal p {
-  font-style: normal;
-}
-
 .modal.alert {
   background: crimson;
-  color: white;
 }
-.modal.alert h1 {
-  color: white;
+h1,
+h2,
+p {
+  margin: 0;
 }
 </style>
