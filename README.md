@@ -1,4 +1,4 @@
-# WORK IN PROGRESS - Reflex Game
+# Reflex Game
 
 A client-side front-end Vue application, built with TypeScript, which tells a user how fast their reflexes are.
 
@@ -24,3 +24,7 @@ To make it more visually interesting and engaging, I decided to build my version
 
 1. Run `npm run lint` - Lints and fixes files
 1. Run `npm run build` - Compiles and minifies for production
+
+## Interface
+
+![Homepage](./public/thumbnail.png)
