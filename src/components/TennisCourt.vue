@@ -32,11 +32,14 @@ export default class TennisCourt extends Vue {}
   margin: 0;
   @media (max-width: 767px) {
     padding: 2rem;
-    padding-top: 1r.5em;
+    padding-top: 1.5em;
     width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 15vh;
   }
 }
 </style>

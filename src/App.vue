@@ -42,9 +42,6 @@ export default class App extends Vue {
   text-align: center;
   height: 100vh;
   width: 100%;
-  @media (max-width: 767px) {
-    justify-content: space-evenly;
-  }
 }
 button {
   background: #4d8dd7;
