@@ -1,11 +1,6 @@
 <template>
   <h1 v-show="showBlock" @click="stopTimer">🥎</h1>
-  <ResultsModal
-    v-if="showModal"
-    heading="Your time was"
-    :text="reactionTime"
-    @close="toggleModal"
-  />
+  <ResultsModal v-if="showModal" :score="reactionTime" @close="toggleModal" />
 </template>
 
 <script lang="ts">

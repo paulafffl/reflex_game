@@ -1,19 +1,34 @@
 <template>
   <div class="backdrop" @click="closeModal">
-    <div class="modal" :class="{ alert: theme === 'alert' }">
-      <h2>{{ heading }}</h2>
-      <h1>
-        <strong>{{ text }}</strong
-        >ms
-      </h1>
-      <p>(click anywhere to play again)</p>
+    <div class="modal">
+      <h2>YOUR TIME:</h2>
+      <h1>{{ score }}ms</h1>
+      <p>
+        That's a <strong>{{ rank }}</strong> reflex
+      </p>
+      <p class="info">(click anywhere to restart)</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["heading", "text", "theme"],
+  props: ["score"],
+  data() {
+    return {
+      rank: null,
+    };
+  },
+  mounted() {
+    if (this.score < 250) {
+      this.rank = "⚡Lightning";
+    }
+    if (this.score < 400) {
+      this.rank = "🚀Quick";
+    } else {
+      this.rank = "🐢Slow";
+    }
+  },
   methods: {
     closeModal() {
       this.$emit("close");
@@ -24,12 +39,13 @@ export default {
 
 <style scoped>
 .modal {
-  width: 400px;
+  width: auto;
   height: auto;
   padding: 40px;
   padding-bottom: 50px;
-  background: #4d8dd7;
-  border-radius: 10px;
+  background: white;
+  border-radius: 4px;
+  border: 8px solid black;
 }
 .backdrop {
   position: fixed;
@@ -40,12 +56,14 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.modal.alert {
-  background: crimson;
+.info {
+  font-size: 0.8rem;
+  margin-top: 1rem;
 }
 h1,
 h2,
 p {
-  margin: 0;
+  margin: 00;
+  color: black;
 }
 </style>
