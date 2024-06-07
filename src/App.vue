@@ -3,7 +3,7 @@
   <h2>How fast are your reflexes? Find&nbsp;out&nbsp;now!</h2>
   <TennisCourt />
   <button v-if="!hasPlayed" @click="start">PLAY</button>
-  <TennisBall v-if="isPlaying" :delay="delay" />
+  <TennisBall v-if="isPlaying" :delay="delay" @restart="restart" />
 </template>
 
 <script lang="ts">
@@ -25,6 +25,10 @@ export default class App extends Vue {
     this.delay = 1000 + Math.random() * 5000;
     this.hasPlayed = true;
     this.isPlaying = true;
+  }
+  restart() {
+    this.hasPlayed = false;
+    this.isPlaying = false;
   }
 }
 </script>

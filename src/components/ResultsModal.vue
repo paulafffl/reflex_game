@@ -2,7 +2,10 @@
   <div class="backdrop" @click="closeModal">
     <div class="modal" :class="{ alert: theme === 'alert' }">
       <h2>{{ heading }}</h2>
-      <h1>{{ text }}</h1>
+      <h1>
+        <strong>{{ text }}</strong
+        >ms
+      </h1>
       <p>(click anywhere to play again)</p>
     </div>
   </div>

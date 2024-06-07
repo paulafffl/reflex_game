@@ -15,6 +15,7 @@ import ResultsModal from "./ResultsModal.vue";
 export default defineComponent({
   props: ["delay", "hasPlayed", "isPlaying"],
   components: { ResultsModal },
+  restart: ["close"],
   data() {
     return {
       showModal: false,
@@ -32,21 +33,18 @@ export default defineComponent({
   methods: {
     toggleModal(): void {
       this.showModal = !this.showModal;
-      this.showBlock = false;
       this.timer = 0;
       this.reactionTime = 0;
+      this.$emit("restart");
     },
-    startTimer(this: { timer: number; reactionTime: number }) {
-      this.timer = setInterval(() => {
+    startTimer(): void {
+      this.timer = window.setInterval(() => {
         this.reactionTime += 10;
       }, 10);
     },
-    stopTimer(this: {
-      showModal: boolean;
-      timer: number;
-      reactionTime: number;
-    }) {
+    stopTimer(): void {
       clearInterval(this.timer);
+      this.showBlock = false;
       this.showModal = true;
     },
   },
